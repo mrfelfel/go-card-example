@@ -14,16 +14,14 @@ func main() {
 
 	defer ctx.Release()
 
-
 	// handle error, if any
 	fmt.Println("\nWaiting for card...")
+	var reader *smartcard.Reader
 
-	reader, err := ctx.WaitForCardPresent()
-	if err != nil {
-		panic(err)
-	}
 	for {
+		readers, _ := ctx.ListReaders()
 
+		reader = readers[0]
 		// handle error, if any
 		if reader.IsCardPresent() {
 			card, _ := reader.Connect()
@@ -39,11 +37,9 @@ func main() {
 
 		}
 		for !reader.IsCardPresent() {
-
 			time.Sleep(100 * time.Microsecond)
 
 		}
 	}
 
-	
 }

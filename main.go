@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	log.Println("hi this is new card client v0.2")
+	log.Println("card server v0.2")
 	ctx, _ := smartcard.EstablishContext()
 
 	defer ctx.Release()

@@ -14,7 +14,6 @@ func main() {
 
 	defer ctx.Release()
 
-	// var mutex = &sync.Mutex{}
 
 	// handle error, if any
 	fmt.Println("\nWaiting for card...")
@@ -46,6 +45,5 @@ func main() {
 		}
 	}
 
-	// main()
-	// handle error, if any
+	
 }
